@@ -41,7 +41,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("💬 ChatGPT Clone")
+st.title("ChatGPT Clone")
 
 # Initialize chat history
 if "messages" not in st.session_state:
@@ -59,7 +59,7 @@ if submitted and user_prompt:
 
     # Send to FastAPI backend
     try:
-        res = requests.post("http://127.0.0.1:8000/generate", json={"prompt": user_prompt})
+        res = requests.post("https://chatgpt-ui-2.onrender.com/generate", json={"prompt": user_prompt})
         bot_response = res.json().get("response", "Sorry, I couldn't generate a response.")
     except:
         bot_response = "⚠️ Backend not available. Start FastAPI server!"
